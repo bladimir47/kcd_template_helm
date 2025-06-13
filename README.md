@@ -32,3 +32,7 @@ Esto permite tener un solo archivo `.yaml` dinámico para múltiples componentes
 ├── values.yaml           # Define la lista de apps
 └── Chart.yaml            # Información básica del chart
 
+---
+
+## 📁 Comandos
+Comandos
