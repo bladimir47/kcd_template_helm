@@ -31,8 +31,37 @@ Esto permite tener un solo archivo `.yaml` dinámico para múltiples componentes
 │   └── service.yaml   # Contiene la lógica con if y range
 ├── values.yaml           # Define la lista de apps
 └── Chart.yaml            # Información básica del chart
+```
 
 ---
 
 ## 📁 Comandos
-Comandos
+
+```bash
+#Crear un proyecto
+helm create kcd 
+
+#Instalar un proyecto de HELM en Kubernetes
+helm install kcd2025 .
+
+#Actualizar un despliegue 
+helm upgrade kcd2025 .
+#Si actualizamos es despliegue con cambios en values
+helm upgrade kcd2025 . -f Values.yaml
+
+#Si queremos ver como HELM genera los archivos enviados a Kubernetes
+helm template .
+
+```
+
+## 📁 Recursos
+
+[kubernetes](https://kubernetes.io/docs/home/)
+
+[Helm](https://helm.sh/)
+
+[Helm](https://helm.sh/)
+
+[MiniKube](https://minikube.sigs.k8s.io/docs/start)
+
+[KCD GUATEMALA 2025](https://community.cncf.io/events/details/cncf-kcd-guatemala-presents-kcd-antigua-guatemala-2025/)
