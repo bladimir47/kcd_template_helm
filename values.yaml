@@ -1,6 +1,6 @@
 userapp:
   name: "user"
-  isVisible: true
+  isVisible: false
   container: "shakrron47/kcd_guatemala_nodejs:2025"
   vars:
     test1: "hola mundo User"
