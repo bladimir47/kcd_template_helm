@@ -4,8 +4,8 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: {{ $val.app.name }}-s
-  name: {{ $val.app.name }}-s
+    app: {{ $val.name }}-s
+  name: {{ $val.name }}-s
 spec:
   ports:
   - name: 80-80
@@ -13,7 +13,7 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: {{ $val.app.name }}
+    app: {{ $val.name }}
   type: NodePort
 status:
   loadBalancer: {}
