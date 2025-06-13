@@ -1,27 +1,29 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: user
-  name: user
+    app: {{ .Values.userapp.name }}
+  name: {{ .Values.userapp.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: user
+      app: {{ .Values.userapp.name }}
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: user
+        app: {{ .Values.userapp.name }}
     spec:
       containers:
-      - image: shakrron47/kcd_guatemala_nodejs:2025
-        name: kcd-guatemala-nodejs-txtmp
+      - image: {{ .Values.userapp.container }}
+        name: {{ .Values.userapp.name }}-pod
         resources: {}
+        env:
+          - name: var1
+            value: {{ .Values.userapp.vars.test1 }}
 status: {}
 ---
 apiVersion: apps/v1
@@ -29,22 +31,25 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: auth
-  name: auth
+    app: {{ .Values.authapp.name }}
+  name: {{ .Values.authapp.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: auth
+      app: {{ .Values.authapp.name }}
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: auth
+        app: {{ .Values.authapp.name }}
     spec:
       containers:
-      - image: shakrron47/kcd_guatemala_nodejs:2025
-        name: kcd-guatemala-nodejs-hzm2p
+      - image: {{ .Values.authapp.container }}
+        name: {{ .Values.authapp.name }}-pod
         resources: {}
+        env:
+          - name: var1
+            value: {{ .Values.authapp.vars.test1 }}
 status: {}
