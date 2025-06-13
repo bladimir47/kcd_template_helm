@@ -46,7 +46,7 @@ Dentro de cada carpeta hay una estructura como la siguiente:
 
 ---
 
-## 📁 Comandos
+## 💻 Comandos
 
 ```bash
 #Crear un proyecto
@@ -65,14 +65,12 @@ helm template .
 
 ```
 
-## 📁 Recursos
+## 📚  Recursos
 
-[kubernetes](https://kubernetes.io/docs/home/)
+[KUBERNETES](https://kubernetes.io/docs/home/)
 
-[Helm](https://helm.sh/)
+[HELM](https://helm.sh/)
 
-[Helm](https://helm.sh/)
-
-[MiniKube](https://minikube.sigs.k8s.io/docs/start)
+[MINIKUBE](https://minikube.sigs.k8s.io/docs/start)
 
 [KCD GUATEMALA 2025](https://community.cncf.io/events/details/cncf-kcd-guatemala-presents-kcd-antigua-guatemala-2025/)
