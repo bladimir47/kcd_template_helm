@@ -1,4 +1,5 @@
 {{- range $key, $val := .Values.apps }}
+{{- if $val.app.isVisible -}}
 apiVersion: v1
 kind: Service
 metadata:
@@ -18,5 +19,6 @@ spec:
 status:
   loadBalancer: {}
 ---
+{{- end -}}
 {{ end -}}
 

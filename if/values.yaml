@@ -1,0 +1,14 @@
+
+userapp:
+  name: "user"
+  isVisible: false
+  container: "shakrron47/kcd_guatemala_nodejs:2025"
+  vars:
+    test1: "hola mundo User"
+    
+authapp:
+  name: "auth"
+  isVisible: true
+  container: "shakrron47/kcd_guatemala_nodejs:2025"
+  vars:
+    test1: "hola mundo Auth"
