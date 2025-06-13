@@ -1,3 +1,4 @@
+{{ -{{- if .Values.userapp.isVisible -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -26,6 +27,8 @@ spec:
             value: {{ .Values.userapp.vars.test1 }}
 status: {}
 ---
+{{- end -}} }}
+{{ -{{- if .Values.authapp.isVisible -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -53,3 +56,5 @@ spec:
           - name: var1
             value: {{ .Values.authapp.vars.test1 }}
 status: {}
+---
+{{- end -}} }}
