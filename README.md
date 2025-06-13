@@ -22,6 +22,8 @@ Esto permite tener un solo archivo `.yaml` dinámico para múltiples componentes
 ---
 ## 📁 Estructura de Archivos
 
+Dentro de cada carpeta se encuentra un ejemplo completo para practicar y observar el uso de Helm.
+
 ```bash
 .
 ├── base/                 # Proyecto HELM que solo tiene las apliaciones a lanzar de ejemplo
@@ -30,6 +32,8 @@ Esto permite tener un solo archivo `.yaml` dinámico para múltiples componentes
 ```
 
 ## 📁 Estructura de Archivos
+
+Dentro de cada carpeta hay una estructura como la siguiente:
 
 ```bash
 .
