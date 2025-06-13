@@ -1,10 +1,11 @@
+{{- range $i, $val := list }}
 apiVersion: v1
 kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: {{ .Values.userapp.name }}-s
-  name: {{ .Values.userapp.name }}-s
+    app: {{ $val.app.name }}-s
+  name: {{ $val.app.name }}-s
 spec:
   ports:
   - name: 80-80
@@ -12,26 +13,27 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: {{ .Values.userapp.name }}
+    app: {{ $val.app.name }}
   type: NodePort
 status:
   loadBalancer: {}
 ---
-apiVersion: v1
-kind: Service
-metadata:
-  creationTimestamp: null
-  labels:
-    app: {{ .Values.authapp.name }}-s
-  name: {{ .Values.authapp.name }}-s
-spec:
-  ports:
-  - name: 80-80
-    port: 80
-    protocol: TCP
-    targetPort: 80
-  selector:
-    app: {{ .Values.authapp.name }}
-  type: NodePort
-status:
-  loadBalancer: {}
+{{ end -}}
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  creationTimestamp: null
+#  labels:
+#    app: {{ .Values.authapp.name }}-s
+#  name: {{ .Values.authapp.name }}-s
+#spec:
+#  ports:
+#  - name: 80-80
+#    port: 80
+#    protocol: TCP
+#    targetPort: 80
+#  selector:
+#    app: {{ .Values.authapp.name }}
+#  type: NodePort
+#status:
+#  loadBalancer: {}

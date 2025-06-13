@@ -1,60 +1,66 @@
-{{- if .Values.userapp.isVisible -}}
+{{- range $i, $val := .Values.apps }}
+  
+
+{{- if $val.app.isVisible -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: {{ .Values.userapp.name }}
-  name: {{ .Values.userapp.name }}
+    app: {{ $val.app.name }}
+  name: {{ $val.app.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ .Values.userapp.name }}
+      app: {{ $val.app.name }}
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: {{ .Values.userapp.name }}
+        app: {{ $val.app.name }}
     spec:
       containers:
-      - image: {{ .Values.userapp.container }}
-        name: {{ .Values.userapp.name }}-pod
+      - image: {{ $val.app.container }}
+        name: {{ $val.app.name }}-pod
         resources: {}
         env:
           - name: var1
-            value: {{ .Values.userapp.vars.test1 }}
+            value: {{ $val.app.vars.test1 }}
 status: {}
 ---
 {{- end -}}
-{{- if .Values.authapp.isVisible -}}
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  creationTimestamp: null
-  labels:
-    app: {{ .Values.authapp.name }}
-  name: {{ .Values.authapp.name }}
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: {{ .Values.authapp.name }}
-  strategy: {}
-  template:
-    metadata:
-      creationTimestamp: null
-      labels:
-        app: {{ .Values.authapp.name }}
-    spec:
-      containers:
-      - image: {{ .Values.authapp.container }}
-        name: {{ .Values.authapp.name }}-pod
-        resources: {}
-        env:
-          - name: var1
-            value: {{ .Values.authapp.vars.test1 }}
-status: {}
----
-{{- end -}}
+
+{{ end -}}
+
+#{{- if .Values.authapp.isVisible -}}
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  creationTimestamp: null
+#  labels:
+#    app: {{ .Values.authapp.name }}
+#  name: {{ .Values.authapp.name }}
+#spec:
+#  replicas: 1
+#  selector:
+#    matchLabels:
+#      app: {{ .Values.authapp.name }}
+#  strategy: {}
+#  template:
+#    metadata:
+#      creationTimestamp: null
+#      labels:
+#        app: {{ .Values.authapp.name }}
+#    spec:
+#      containers:
+#      - image: {{ .Values.authapp.container }}
+#        name: {{ .Values.authapp.name }}-pod
+#        resources: {}
+#        env:
+#          - name: var1
+#            value: {{ .Values.authapp.vars.test1 }}
+#status: {}
+#---
+#{{- end -}}
