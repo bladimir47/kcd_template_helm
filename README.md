@@ -20,12 +20,19 @@ Este Helm chart permite definir múltiples aplicaciones en el `values.yaml` y ge
 Esto permite tener un solo archivo `.yaml` dinámico para múltiples componentes.
 
 ---
+## 📁 Estructura de Archivos
+
+```bash
+.
+├── base/                 # Proyecto HELM que solo tiene las apliaciones a lanzar de ejemplo
+├── for/                  # Proyecto HELM que contiene los archivos para ejecutar el range
+└── if/                   # Proyecto HELM que contiene los archivos para ejecutar el if
+```
 
 ## 📁 Estructura de Archivos
 
 ```bash
 .
-├── charts/               # (subcharts, si los usas)
 ├── templates/
 │   └── deployment.yaml   # Contiene la lógica con if y range
 │   └── service.yaml   # Contiene la lógica con if y range
