@@ -1,33 +1,33 @@
 {{- range $i, $val := .Values.apps }}
   
 
-{{- if $val.isVisible -}}
+{{- if $val.app.isVisible -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: {{ $val.name }}
-  name: {{ $val.name }}
+    app: {{ $val.app.name }}
+  name: {{ $val.app.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: {{ $val.name }}
+      app: {{ $val.app.name }}
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: {{ $val.name }}
+        app: {{ $val.app.name }}
     spec:
       containers:
-      - image: {{ $val.container }}
-        name: {{ $val.name }}-pod
+      - image: {{ $val.app.container }}
+        name: {{ $val.app.name }}-pod
         resources: {}
         env:
           - name: var1
-            value: {{ $val.vars.test1 }}
+            value: {{ $val.app.vars.test1 }}
 status: {}
 ---
 {{- end -}}
