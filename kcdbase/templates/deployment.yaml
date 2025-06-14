@@ -3,26 +3,54 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: "VALUES"
-  name: "VALUES"
+    app: {{ .Values.authapp.name }}
+  name: {{ .Values.authapp.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: "VALUES"
+      app: {{ .Values.authapp.name }}
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: "VALUES"
+        app: {{ .Values.authapp.name }}
     spec:
       containers:
-      - image: "CONTAINER"
-        name: "VALUES"-pod
+      - image: {{ .Values.authapp.container }}
+        name: {{ .Values.authapp.name }}-pod
         resources: {}
         env:
           - name: var1
-            value: "VARIABLE"
+            value: {{ .Values.authapp.vars.test1 }}
+status: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: {{ .Values.userapp.name }}
+  name: {{ .Values.userapp.name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.userapp.name }}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: {{ .Values.userapp.name }}
+    spec:
+      containers:
+      - image: {{ .Values.userapp.container }}
+        name: {{ .Values.userapp.name }}-pod
+        resources: {}
+        env:
+          - name: var1
+            value: {{ .Values.userapp.vars.test1 }}
 status: {}
 ---

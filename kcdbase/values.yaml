@@ -3,10 +3,10 @@ userapp:
   name: "user"
   container: "shakrron47/kcd_guatemala_nodejs:2025"
   vars:
-    test1: "hola mundo User"
+    test1: "hola mundo User KCD ksks"
 
 authapp:
   name: "auth"
   container: "shakrron47/kcd_guatemala_nodejs:2025"
   vars:
-    test1: "hola mundo Auth"
+    test1: "hola mundo Auth lslsl"
