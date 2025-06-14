@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: "VALUES"
+  name: "VALUES"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "VALUES"
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: "VALUES"
+    spec:
+      containers:
+      - image: "CONTAINER"
+        name: "VALUES"-pod
+        resources: {}
+        env:
+          - name: var1
+            value: "VARIABLE"
+status: {}
+---
